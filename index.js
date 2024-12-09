@@ -8,6 +8,22 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
+app.get('/', (req, res) => {
+  res.setHeader('Content-Type', 'text/html');
+  let html = `
+    <html>
+      <head>
+        <style>
+          body {font-family: Arial, sans-serif;}
+        </style>
+      </head>
+      <body>
+        <h1>El sitio web esta funcionando</h1>
+      </body>
+    </html>`;
+    res.send(html);
+});
+
 app.get('/api/test', (req, res) => {
   res.send('This is working');
 });
